@@ -87,44 +87,51 @@ function Dashboard() {
           ))}
         </div>
         <hr className="my-5 w-5/6" />
-        <div className="w-90 h-screen bg-white my-6 mx-4">
-          <div className="flex items-center justify-between bg-transparent">
-            <h1 className="bg-transparent text-3xl font-semibold font-serif my-3 mx-3 py-3">
-              Trending Products
-            </h1>
-            <span className="bg-transparent text-blue-800 font-semibold underline text-xl cursor-pointer mx-3">
-              View all
-            </span>
-          </div>
-          <div className="grid grid-cols-1 bg-transparent md:grid-cols-3 gap-6 mx-6">
-            {data.map((product) => (
-              <div
-                key={product.id}
-                className="mt-5 bg-transparent w-5/6 min-h-[15rem] rounded-lg shadow-xl cursor-pointer overflow-hidden mx-6"
-              >
-                <img
-                  className="w-full h-[200px] object-center object-fill"
-                  src={product.Image}
-                  alt={product.Image}
-                />
-                <div className="p-5 flex-col gap-3">
-                  <h1 className="font-bold text-ig text-black overflow-hidden overflow-ellipsis">
-                    {product.Title}
-                  </h1>
-                  <div className="pt-3 text-blue-950 font-semibold">
-                    <span className="text-lg block">By {product.Company}</span>
-                    <p className="mt-2 font-bold">Price: {product.Price}</p>
-                  </div>
-                  <div className="w-full pt-3">
-                    <button className="bg-blue-900 h-10 rounded-xl text-white font-semibold w-full">
-                      Send Enquiry
-                    </button>
+        {selectedButton === "All Products" && (
+          <div className="w-90 h-screen bg-white my-6 mx-4">
+            <div className="flex items-center justify-between bg-transparent">
+              <h1 className="bg-transparent text-3xl font-semibold font-serif my-3 mx-3 py-3">
+                Trending Products
+              </h1>
+              <span className="bg-transparent text-blue-800 font-semibold underline text-xl cursor-pointer mx-3">
+                View all
+              </span>
+            </div>
+            <div className="grid grid-cols-1 bg-transparent md:grid-cols-3 gap-6 mx-6">
+              {data.map((product) => (
+                <div
+                  key={product.id}
+                  className="mt-5 bg-transparent w-5/6 min-h-[15rem] rounded-lg shadow-xl cursor-pointer overflow-hidden mx-6"
+                >
+                  <img
+                    className="w-full h-[200px] object-center object-fill"
+                    src={product.Image}
+                    alt={product.Image}
+                  />
+                  <div className="p-5 flex-col gap-3">
+                    <h1 className="font-bold text-ig text-black overflow-hidden overflow-ellipsis">
+                      {product.Title}
+                    </h1>
+                    <div className="pt-3 text-blue-950 font-semibold">
+                      <span className="text-lg block">
+                        By {product.Company}
+                      </span>
+                      <p className="mt-2 font-bold">Price: {product.Price}</p>
+                    </div>
+                    <div className="w-full pt-3">
+                      <button className="bg-blue-900 h-10 rounded-xl text-white font-semibold w-full">
+                        Send Enquiry
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+        {selectedButton === "My Products" && <h2>My Products</h2>}
+        {selectedButton === "Remove Products" && <h2>Remove Products</h2>}
+        {selectedButton === "Draft" && <h2>Draft</h2>}
       </div>
     </>
   );
