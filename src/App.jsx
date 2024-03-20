@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Faq from "./Components/User/Faq";
-import Faq1 from "./Components/User/Faq1";
+// import Faq1 from "./Components/User/Faq1";
 import "./App.css";
 import Home from "./Components/User/Home";
 
@@ -13,7 +13,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/*" element={<Home />}></Route>
-          <Route path="/new_faq" element={<Faq1 />}></Route>
         </Routes>
       </BrowserRouter>
     </>

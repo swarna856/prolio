@@ -1,7 +1,6 @@
 import Sidebar from "../Sidebar/Sidebar";
 import SimpleNavbar from "../Navbar/SimpleNavbar";
-import "./Faq1.css";
-import Faq1 from "./Faq1";
+// import "./Faq1.css";
 
 import React, { useMemo, useState } from "react";
 import Table from "../Re-use/Table";
@@ -26,49 +25,71 @@ function Faq() {
       question:
         " Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo illo maxime dolor vitae? Animi quod deleniti maxime nulla porro iure totam ipsam aperiam facilis vitae quo, ut odit rerum?",
     },
+    {
+      id: 4,
+      question:
+        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo illo maxime dolor vitae? Animi quod deleniti maxime nulla porro iure totam ipsam aperiam facilis vitae quo, ut odit rerum?",
+    },
+    {
+      id: 5,
+      question:
+        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo illo maxime dolor vitae? Animi quod deleniti maxime nulla porro iure totam ipsam aperiam facilis vitae quo, ut odit rerum?",
+    },
+    {
+      id: 6,
+      question:
+        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo illo maxime dolor vitae? Animi quod deleniti maxime nulla porro iure totam ipsam aperiam facilis vitae quo, ut odit rerum?",
+    },
   ];
 
   return (
     <>
       <div className="ml-14 mt-5">
-        <h1 className="pt-2 px-5 text-3xl text-blue-900 py-2">
+        <h1 className="pt-2 px-5 text-3xl text-blue-900 py-5">
           Frequently Asked Questions
         </h1>
+        <div className="flex items-center justify-between py-3">
+          <div className=" ">
+            <div className="">
+              {DropDownList.map((value, key) => {
+                return (
+                  <div key={key} className="relative inline-block ">
+                    <button
+                      type="button"
+                      className={`py-2 font-semibold px-6  ${
+                        selectedButton === value
+                          ? "text-blue-800 border-blue-900"
+                          : "bg-transparent text-gray-500"
+                      }`}
+                      onClick={() => setSelectedButton(value)}
+                    >
+                      {value}
+                    </button>
+                    {selectedButton === value && (
+                      <hr
+                        className="absolute mx-6 border-t-2 border-blue-900 "
+                        style={{ width: `${value.length}ch`, bottom: "-2px" }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
 
-        <div className=" ">
-          <div className="">
-            {DropDownList.map((value, key) => {
-              return (
-                <div key={key} className="relative inline-block">
-                  <button
-                    type="button"
-                    className={`py-2 font-semibold px-6 ${
-                      selectedButton === value
-                        ? "text-blue-800 border-blue-900"
-                        : "bg-transparent text-gray-500"
-                    }`}
-                    onClick={() => setSelectedButton(value)}
-                  >
-                    {value}
-                  </button>
-                  {selectedButton === value && (
-                    <hr
-                      className="absolute mx-6 border-t-2 border-blue-900"
-                      style={{ width: `${value.length}ch`, bottom: "-2px" }}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="">
-            <hr className="" />
-            <h2 className="text-2xl leading-10 font-semibold text-blue-800 mx-4 my-4 py-2">
-              Product Question and Answers
-            </h2>
+              <span>
+                <img class="cursor-pointer" src="src\assets\bx_sort.png"></img>
+                <img src="src\assets\lucide_filter.png"></img>
+              </span>
+            </div>
           </div>
         </div>
+
+        <div className="">
+          <hr  />
+          <h2 className="text-2xl leading-10 font-semibold text-blue-800 mx-4 my-4 py-3">
+            Product Question and Answers
+          </h2>
+        </div>
+
         <div>
           {data.map((qa) => (
             <div key={qa.id}>
@@ -89,12 +110,20 @@ function Faq() {
                     className="h-10 my-3 mx-2 py-3 w-3/4 "
                     placeholder="Enter the answer here..."
                   />
-                  <button className="Btn">Publish</button>
-                  <button className="Btn">Reject</button>
+                  <button className="py-3 px-3 bg-blue-900 rounded-lg text-white font-semibold mx-5 ">
+                    Publish
+                  </button>
+                  <button className="py-3 px-3 bg-blue-900 rounded-lg text-white font-semibold mx-5">
+                    Reject
+                  </button>
                 </div>
                 <div className="w-90  bg-white flex items-center">
-                  <button className="userBtn">User Details</button>
-                  <button className="userBtn">Product Details</button>
+                  <button className=" text-blue-900 cursor-pointer font-semibold hover:underline mx-4 my-2">
+                    User Details
+                  </button>
+                  <button className=" text-blue-900 cursor-pointer font-semibold hover:underline mx-4 my-2">
+                    Product Details
+                  </button>
                 </div>
               </div>
             </div>
