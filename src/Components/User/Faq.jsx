@@ -35,7 +35,7 @@ function Faq() {
   return (
     <>
       <div className="ml-14 mt-5">
-        <h1 className="pt-2 px-5 text-3xl text-blue-900 py-5">
+        <h1 className="pt-2 px-5 text-3xl font-semibold text-blue-900 py-5 ">
           Frequently Asked Questions
         </h1>
 
@@ -45,7 +45,7 @@ function Faq() {
               return (
                 <button
                   type="button"
-                  className={`py-2 font-semibold px-6  ${
+                  className={`py-4 font-semibold px-6  ${
                     selectedButton === value
                       ? "text-blue-800 border-blue-900"
                       : "bg-transparent text-gray-500"
@@ -84,7 +84,7 @@ function Faq() {
                       A:
                     </p>
                     <input
-                      className="h-10 my-3 mx-2 py-3 w-3/4 text-decoratio-none"
+                      className="h-10 my-3 mx-2 py-3 w-3/4"
                       placeholder="Enter the answer here..."
                     />
                     <button className="py-3 px-3 bg-blue-900 rounded-lg text-white font-semibold mx-5 ">
@@ -107,9 +107,15 @@ function Faq() {
             ))}
           </div>
         )}
-        {selectedButton == "Published" && <h2>Published FAQs</h2>}
-        {selectedButton == "Rejected" && <h2>Rejected FAQs</h2>}
-        {selectedButton == "Processing" && <h2>Processing FAQs</h2>}
+        {selectedButton == "Published" && (
+          <h2 className="py-5">Published FAQs</h2>
+        )}
+        {selectedButton == "Rejected" && (
+          <h2 className="py-5">Rejected FAQs</h2>
+        )}
+        {selectedButton == "Processing" && (
+          <h2 className="py-5">Processing FAQs</h2>
+        )}
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Faq from "./Faq";
 import Dashboard from "./Dashboard";
 import { Route, Routes } from "react-router-dom";
+import Reseller from "../Forms/Reseller";
 
 function Home() {
   return (
@@ -17,8 +18,8 @@ function Home() {
           <Routes>
             <Route path="/faq" element={<Faq />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
-            {/* <Route path="/opportunities" element={<Opportunities />}></Route>
-            <Route path="/wishlist" element={<Wishlist />} /> */}
+            {/* <Route path="/opportunities" element={<Opportunities />}></Route> */}
+            {/* <Route path="/wishlist" element={<Reseller/>} /> */}
           </Routes>
         </div>
       </div>
