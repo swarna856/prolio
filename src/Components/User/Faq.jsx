@@ -30,6 +30,11 @@ function Faq() {
       question:
         " Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo illo maxime dolor vitae? Animi quod deleniti maxime nulla porro iure totam ipsam aperiam facilis vitae quo, ut odit rerum?",
     },
+    {
+      id: 5,
+      question:
+        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nemo illo maxime dolor vitae? Animi quod deleniti maxime nulla porro iure totam ipsam aperiam facilis vitae quo, ut odit rerum?",
+    },
   ];
 
   return (

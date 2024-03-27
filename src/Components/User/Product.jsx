@@ -1,17 +1,30 @@
 import Sidebar from "../Sidebar/Sidebar";
 import SimpleNavbar from "../Navbar/SimpleNavbar";
 import CommonNavBar from "../Navbar/CommonNavBar";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ShareIcon from "@mui/icons-material/Share";
+import GroupsIcon from "@mui/icons-material/Groups";
+import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 
 import React, { useState } from "react";
 
-function Dashboard() {
+function Product() {
   const DropDownList = [
     "All Products",
     "My Products",
     "Remove Products",
     "Draft",
   ];
+  const DropDownList1 = [
+    "Product Details",
+    "Social Media Handles",
+    "Buniess Boosters",
+    "Pricing",
+    "Reviews",
+  ];
   const [selectedButton, setSelectedButton] = useState(DropDownList[0]);
+  const [selectedButton1, setSelectedButton1] = useState(DropDownList1[0]);
 
   const data = [
     {
@@ -47,22 +60,59 @@ function Dashboard() {
       Price: " ₹1000",
     },
   ];
+  const [data1, setData] = useState([
+    {
+      id: 1,
+      Title: "Casual Shirts",
+      Image: "",
+      Company: "By Anish Industries",
+      ProductID: "1254",
+      Submitted: "12/4/2023",
+      Employee: "Anup Kumar",
+      Status: "Approved",
+    },
+    {
+      id: 2,
+      Title: "Formal Shirts",
+      Image: "",
+      ProductID: "8954",
+      Submitted: "18/5/2023",
+      Employee: "Radha Jain",
+      Status: "Approved",
+    },
+    {
+      id: 3,
+      Title: "Jeans",
+      Image: "",
+      ProductID: "6452",
+      Submitted: "01/12/2023",
+      Employee: "Anup Kumar",
+      Status: "Approved",
+    },
+    {
+      id: 4,
+      Title: "Jeans",
+      Image: "",
+      ProductID: "6452",
+      Submitted: "01/12/2023",
+      Employee: "Anup Kumar",
+      Status: "Approved",
+    },
+  ]);
 
   return (
     <>
       <Sidebar />
       <SimpleNavbar />
-      {/* <CommonNavBar /> */}
       <div className="ml-14 mt-5">
         <div className="flex items-center justify-between py-3">
-          <h1 className="pt-2 px-5 text-4xl text-blue-900 py-4 font-semibold">
+          <h1 className="pt-2 px-5 text-4xl text-blue-900 py-4 font-bold">
             Products
           </h1>
           <button className="py-4 px-4 bg-blue-900 rounded-lg text-white font-semibold mx-5">
             Add Products
           </button>
         </div>
-
         <div className="text-1xl">
           {DropDownList.map((value, key) => (
             <div key={key} className="relative inline-block bg-transparent">
@@ -129,12 +179,455 @@ function Dashboard() {
             </div>
           </div>
         )}
-        {selectedButton === "My Products" && <h2>My Products</h2>}
-        {selectedButton === "Remove Products" && <h2>Remove Products</h2>}
+        {selectedButton === "My Products" && (
+          <div className="w-11/12 h-max py-8 mx-6 bg-white rounded-lg shadow-md">
+            <div class="flex items-center bg-white py-2">
+              <h2 class="text-3xl text-blue-900 font-semibold mx-6 py-4 border-b-2 border-blue-900 bg-white">
+                Products
+              </h2>
+              <select class="ml-auto mr-6 py-3 px-10 border-2 border-solid border-blue-900  rounded-lg font-bold text-blue-900 bg-white shadow-md">
+                <option className="font-semibold text-blue-900 ">
+                  All Status
+                </option>
+                <option className="font-semibold text-blue-900 ">1</option>
+                <option className="font-semibold text-blue-900">2</option>
+              </select>
+            </div>
+            <hr className="my-5" />
+            <div className="overflow-x-auto bg-white ">
+              <table className="table-auto border-collapse w-11/12 mx-10  ">
+                <thead>
+                  <tr>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      All
+                    </th>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl ">
+                      Image
+                    </th>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      Product Name
+                    </th>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      Product ID
+                    </th>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      Submitted
+                    </th>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      Employee
+                    </th>
+                    <th className=" px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      Status
+                    </th>
+                    <th className="px-4 py-4 bg-blue-50 text-black-200 text-xl">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data1.map((item) => (
+                    <tr key={item.id} className="align-middle">
+                      <td className=" px-4 py-2  bg-blue-50  text-black-200  ">
+                        <input type="checkbox" />
+                      </td>
+                      <td className=" px-4 py-2 bg-blue-50 text-black-200 font-semibold">
+                        {item.Image}
+                      </td>
+                      <td className=" px-4 py-2 bg-blue-50 text-black-200 font-semibold  flex justify-center align-middle  ">
+                        {item.Title}
+                      </td>
+
+                      <td className=" px-4 py-2 bg-blue-50 text-black-200 font-semibold ">
+                        {item.ProductID}
+                      </td>
+                      <td className=" px-4 py-2 bg-blue-50 text-black-200 font-semibold ">
+                        {item.Submitted}
+                      </td>
+                      <td className=" px-4 py-2 bg-blue-50 text-black-200 font-semibold ">
+                        {item.Employee}
+                      </td>
+                      <td className="px-4 py-2 bg-blue-50 text-green-700 font-semibold ">
+                        {item.Status}
+                      </td>
+                      <td className="px-4 py-2 bg-blue-50 text-black-200 font-semibold ">
+                        <svg
+                          className="bg-blue-50 cursor-pointer "
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 612 512"
+                          height="1em"
+                        >
+                          <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
+                        </svg>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+        {selectedButton === "Remove Products" && (
+          <div className="w-full flex h-2/6 ">
+            <div className="w-full   flex  overflow-scroll h-screen ">
+              <div>
+                <div className="w-full lg:w-98 h-200 border border-soild my-2 mx-2 flex shadow-md">
+                  <div className="w-1/2 h-150 bg-blue-50 my-2 ">
+                    <div className="w-4/5 h-2/4 py-12 bg-yellow-500 mx-16 my-6"></div>
+                    <div className="w-11/12 h-1/3 mx-8 flex justify-between">
+                      <div className="w-4/5 h-3/5 bg-yellow-500 mx-2 my-6"></div>
+                      <div className="w-4/5 h-3/5 bg-yellow-500 mx-2 my-6"></div>
+                      <div className="w-4/5 h-3/5 bg-yellow-500 mx-2 my-6"></div>
+                    </div>
+                  </div>
+                  <div className="w-1/2 h-4/5 bg-blue-50 mx-2 my-2 ">
+                    <h1 className="text-3xl text-black font-semibold mx-8 my-2 bg-blue-50">
+                      Casual Shirt
+                    </h1>
+                    <h2 className="text-xl text-blue-900 font-semibold mx-8 my-4 bg-blue-50">
+                      By Arrow
+                    </h2>
+                    <h2 className="text-grey-100  my-6 mx-8 text-xl bg-blue-50">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Veniam, quod. Molestiae, quo molestias ipsum suscipit
+                      similique placeat beatae nam culpa recusandae. Officiis
+                      eum ex harum ea inventore dolorem, consequatur cumque.
+                    </h2>
+                    <h1 className="text-blue-900 text-2xl font-semibold mx-8 bg-blue-50">
+                      PRICE: ₹ 72/peice
+                    </h1>
+                    <h2 className="text-xl text-black font-semibold mx-8 my-4 bg-blue-50">
+                      Variations :
+                    </h2>
+                    <div className="flex">
+                      <h2 className="text-xl text-black font-semibold mx-8 my-4 bg-blue-50">
+                        Colors:
+                      </h2>
+                      <h2 className="text-xl text-black font-semibold mx-64 my-4 bg-blue-50">
+                        Sizes :
+                      </h2>
+                    </div>
+                    <div className="flex">
+                      <div className="w-1/2 h-11/12 bg-white mx-8 shadow-md rounded-lg">
+                        <button className="rounded-full bg-red-400 w-12 h-12  ml-2 mt-2"></button>
+                        <button className="rounded-full bg-green-400 w-12 h-12  ml-2 mt-2"></button>
+                        <button className="rounded-full bg-blue-400 w-12 h-12  ml-2 mt-2"></button>
+                        <button className="rounded-full bg-yellow-400 w-12 h-12  ml-2 mt-2"></button>
+                        <button className="rounded-full bg-black w-12 h-12  ml-2 mt-2"></button>
+                        <button className="rounded-full bg-purple-400 w-12 h-12  ml-2 mt-2"></button>
+                      </div>
+                      <div className="w-1/2 h-40 bg-white mx-8 shadow-md rounded-lg ">
+                        <button className="rounded-full bg-blue-50 w-12 h-12 ml-4 mt-2 font-semibold">
+                          XS
+                        </button>
+                        <button className="rounded-full bg-blue-50 w-12 h-12 ml-4 mt-2 font-semibold">
+                          S
+                        </button>
+                        <button className="rounded-full bg-blue-50 w-12 h-12 ml-4 mt-2 font-semibold">
+                          L
+                        </button>
+                        <button className="rounded-full bg-blue-50 w-12 h-12 ml-4 mt-2 font-semibold">
+                          XL
+                        </button>
+                      </div>
+                    </div>
+                    <button className="text-xl font-semibold py-4 w-11/12 bg-gray-400 mx-10 my-10 rounded-lg border border-solid border-black">
+                      Send Enquiry
+                    </button>
+                  </div>
+                </div>
+                <div className="h-max w-full mx-2 bg-white shadow-md">
+                  <div className="text-xl border-2 border-solid border-slate-400 rounded-lg bg-white mx-8">
+                    {DropDownList1.map((value, key) => (
+                      <div
+                        key={key}
+                        className="relative inline-block bg-transparent px-6  "
+                      >
+                        <button
+                          type="button"
+                          className={`py-3 font-semibold px-6 ${
+                            selectedButton1 === value
+                              ? "text-white bg-blue-900"
+                              : "bg-transparent text-gray-500"
+                          }`}
+                          onClick={() => setSelectedButton1(value)}
+                        >
+                          {value}
+                        </button>
+                        {selectedButton1 === value && (
+                          <hr className="absolute mx-6 border-t-2 bg-blue-900" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {selectedButton1 === "Product Details" && (
+                    <div>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Product Name:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Brand Name:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Product ID:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Description:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Key Features:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Product Specifications:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Importer:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Warranty:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Speciality/Uniqueness:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6 pb-6">
+                        Benefits:
+                      </h2>
+                    </div>
+                  )}
+                  {selectedButton1 === "Social Media Handles" && (
+                    <div className="transition-all duration-300 ease-in-out">
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Twitter:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Facebook:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Instagram:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6 pb-6">
+                        YouTube:
+                      </h2>
+                    </div>
+                  )}
+                  {selectedButton1 === "Buniess Boosters" && (
+                    <div>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Prospective Customer Domains:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Green Aspects:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-8 mt-6 pb-6">
+                        Buiness Oppurtunities:
+                      </h2>
+                    </div>
+                  )}
+                  {selectedButton1 === "Pricing" && (
+                    <div>
+                      <h2 className="text-xl font-semibold ml-8 mt-6">
+                        Product Pricing:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-16 mt-6">
+                        Quatity Pricing:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-16 mt-6">
+                        Quatity Pricing:
+                      </h2>
+                      <h2 className="text-xl font-semibold ml-16 mt-6">
+                        Quatity Pricing:
+                      </h2>
+                    </div>
+                  )}
+                  {selectedButton1 === "Reviews" && (
+                    <div>
+                      <h2 className="text-xl font-semibold ml-8 mt-6 pb-6">
+                        No Reviews.
+                      </h2>
+                    </div>
+                  )}
+                </div>
+                <div className="h-48 w-full mx-2 px-18 my-4  bg-white shadow-md">
+                  <h1 className=" text-xl font-semibold mx-10 my-4 bg-white">
+                    Products Buying Guide
+                  </h1>
+                  <div className="flex my-2">
+                    <h1 className=" text-xl font-semibold px-4 mx-6 bg-white">
+                      Tip 1:
+                    </h1>
+                    <h3 className="font-xl font-serif bg-white">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quo consequatur earum minus vel voluptatem? Animi aperiam,
+                      id iusto aliquam officiis porro
+                    </h3>
+                  </div>
+                  <div className="flex">
+                    <h1 className=" text-xl font-semibold px-4 mx-6  bg-white">
+                      Tip 2:
+                    </h1>
+                    <h3 className="font-xl font-serif bg-white">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quo consequatur earum minus vel voluptatem? Animi aperiam,
+                      id iusto aliquam officiis porro
+                    </h3>
+                  </div>
+                  <input
+                    className="w-11/12 h-10 mx-10 rounded-lg my-4 bg-white border border-solid border-slate-400"
+                    type="text"
+                    placeholder="Add tips about the product to offer more information to the users"
+                  ></input>
+                </div>
+                <div className="w-full h-max bg-white mx-2 flex">
+                  <div className="w-2/5 h-1/2 bg-white mx-2 shadow-md ">
+                    <h1 className="font-semibold text-2xl mx-4 my-2 bg-white">
+                      Oppurtunities
+                    </h1>
+                    <div className="w-11/12 h-24 border border-solid border-blue-900 mx-4 my-4 rounded-xl bg-white flex">
+                      <h2 className="font-semibold text-xl mx-8 my-8 bg-white">
+                        Become an authorized speacilist
+                      </h2>
+                      <button className="bg-blue-900  text-white font-semibold my-4 px-8 rounded-lg ">
+                        Apply
+                      </button>
+                    </div>
+                    <div className="w-11/12 h-24 border border-solid border-blue-900 mx-4 my-4 rounded-xl bg-white flex">
+                      <h2 className="font-semibold text-xl mx-8 my-8 bg-white">
+                        Become an authorized speacilist
+                      </h2>
+                      <button className="bg-blue-900  text-white font-semibold my-4 px-8 rounded-lg ">
+                        Apply
+                      </button>
+                    </div>
+                    <div className="w-11/12 h-24 border border-solid border-blue-900 mx-4 my-4 rounded-xl bg-white flex">
+                      <h2 className="font-semibold text-xl mx-8 my-8 bg-white">
+                        Become an authorized speacilist
+                      </h2>
+                      <button className="bg-blue-900  text-white font-semibold my-4 px-8 rounded-lg ">
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="w-3/5 h-96 bg-white mx-2 overflow-scroll shadow-md  ">
+                    <div className="flex bg-white">
+                      <h2 className="font-semibold text-2xl ml-2 my-2 bg-white">
+                        Product answers and questions
+                      </h2>
+                      <input
+                        className="w-2/5 h-10 ml-6 rounded-lg my-2 bg-white border border-solid border-slate-400"
+                        type="text"
+                        placeholder="Search"
+                      ></input>
+                      <button className="ml-6">
+                        <CloseIcon className="h-16 w-16 bg-white " />
+                      </button>
+                    </div>
+                    <div className="flex my-4 bg-white">
+                      <h2 className="ml-8 bg-white">
+                        Didn't get the right answer you were looking for?
+                      </h2>
+                      <button className="ml-48 bg-blue-900 px-4 py-2 text-white rounded-lg">
+                        Post Question
+                      </button>
+                    </div>
+                    <div>
+                      <h2 className="pl-8 bg-white">
+                        Q:Loremipsum dolor sit, amet consectetur adipisicing
+                        elit. Tenetur officia consequuntur recusandae rem
+                        consequatur?
+                      </h2>
+                      <h2 className="pl-8 pb-2 bg-white">
+                        A:Loremipsum dolor sit, amet consectetur adipisicing
+                        elit. Tenetur officia consequuntur recusandae rem
+                        consequatur?
+                      </h2>
+                      <h6 className="pl-8 text-slate-600 bg-white">
+                        Certified Seller
+                      </h6>
+                    </div>
+                    <hr />
+                    <div>
+                      <h2 className="pl-8 bg-white">
+                        Q:Loremipsum dolor sit, amet consectetur adipisicing
+                        elit. Tenetur officia consequuntur recusandae rem
+                        consequatur?
+                      </h2>
+                      <h2 className="pl-8 pb-2 bg-white">
+                        A:Loremipsum dolor sit, amet consectetur adipisicing
+                        elit. Tenetur officia consequuntur recusandae rem
+                        consequatur?
+                      </h2>
+                      <h6 className="pl-8 text-slate-600 bg-white">
+                        Certified Seller
+                      </h6>
+                    </div>
+
+                    <hr />
+                    <div>
+                      <h2 className="pl-8 bg-white">
+                        Q:Loremipsum dolor sit, amet consectetur adipisicing
+                        elit. Tenetur officia consequuntur recusandae rem
+                        consequatur?
+                      </h2>
+                      <h2 className="pl-8 pb-2 bg-white">
+                        A:Loremipsum dolor sit, amet consectetur adipisicing
+                        elit. Tenetur officia consequuntur recusandae rem
+                        consequatur?
+                      </h2>
+                      <h6 className="pl-8 text-slate-600 bg-white">
+                        Certified Seller
+                      </h6>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-1/6 h-3/4  my-2 mx-2  ">
+              <button className="py-4 px-6 bg-blue-200 text-xl font-bold text-blue-900 mx-16 my-4 rounded-lg">
+                Edit
+              </button>
+              <button className="w-11/12 h-1/5 bg-blue-900  font-bold text-white mx-3 my-2 rounded-lg py-4 ">
+                <VisibilityIcon
+                  className="w-12 h-12 bg-blue-900 "
+                  fontSize="large"
+                />
+                <h2 className="text-white bg-blue-900">Views</h2>
+                <h1 className="text-4xl text-white bg-blue-900 pb-4">223</h1>
+              </button>
+              <button className="w-11/12 h-1/5 bg-blue-900  font-bold text-white mx-3 my-2 rounded-lg py-4 ">
+                <ShareIcon
+                  className="w-12 h-12 bg-blue-900 "
+                  fontSize="large"
+                />
+                <h2 className="text-white bg-blue-900 ">Shares</h2>
+                <h1 className="text-4xl text-white bg-blue-900 pb-4">223</h1>
+              </button>
+              <button className="w-11/12 h-1/5 bg-blue-900  font-bold text-white mx-2 my-2 py-4 rounded-lg shadow-md">
+                <GroupsIcon
+                  className="w-12 h-12 bg-blue-900 "
+                  fontSize="large"
+                />
+                <h2 className="text-white bg-blue-900">Enquires</h2>
+                <h1 className="text-4xl text-white bg-blue-900 pb-4">223</h1>
+              </button>
+              <button className="w-11/12 h-1/6 bg-blue-100  font-bold text-white mx-3 my-4 rounded-lg py-4">
+                <TrendingUpOutlinedIcon
+                  className="w-12 h-12 bg-blue-100 text-blue-900  "
+                  fontSize="large"
+                />
+                <h1 className="text-2xl text-blue-900 font-semibold  bg-blue-100 pb-4">
+                  Price Graph
+                </h1>
+              </button>
+            </div>
+          </div>
+        )}
+
         {selectedButton === "Draft" && <h2>Draft</h2>}
       </div>
     </>
   );
 }
 
-export default Dashboard;
+export default Product;

@@ -10,9 +10,9 @@ function Sidebar() {
   const location = useLocation(); // Get the current location
   const [navLinks, setNavLinks] = useState([
     {
-      title: "Dashboard",
+      title: "Products",
       icon: <Icon icon="mingcute:grid-2-fill" className="bg-transparent" />,
-      path: "/dashboard",
+      path: "/product",
     },
     {
       title: "Home",
@@ -44,6 +44,7 @@ function Sidebar() {
       icon: <FaPeopleGroup className="bg-transparent" />,
       path: "/faq",
     },
+    
   ]);
 
   return (

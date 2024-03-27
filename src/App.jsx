@@ -7,6 +7,7 @@ import Home from "./Components/User/Home";
 import Reseller from "./Components/Forms/Reseller";
 import Service from "./Components/Forms/Service";
 import Supplier from "./Components/Forms/Supplier";
+import Review from "./Components/User/Review";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
           <Route path="/reseller" element={<Reseller />}></Route>
           <Route path="/service" element={<Service />}></Route>
           <Route path="/supplier" element={<Supplier />}></Route>
+          <Route path="/review" element={<Review />}></Route>
         </Routes>
       </BrowserRouter>
     </>

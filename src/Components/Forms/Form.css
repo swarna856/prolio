@@ -23,9 +23,11 @@
     margin: 0% auto;
 }
 svg{
+    background-color: #DDEBFF;
     cursor: pointer;
 }
 .header{
+    background-color: #DDEBFF;
     width:100%;
     font-size: 20px;
     padding: 5px 60px 0px 40px;
@@ -35,17 +37,19 @@ svg{
     gap: 10px;
 }
 .header-heading{
-
+    background-color: #DDEBFF;
     font-size: 25px;
 }
 .main-container{
     width:100%;
     height: max-content;
+    background-color: #DDEBFF;
     /* border:1px solid black; */
     padding: 15px 0px;
 }
 
 .first-container{
+    background-color: #DDEBFF;
     width:100%;
     height: 10vh;
     display: flex;
@@ -56,6 +60,7 @@ svg{
     
 }
 .sub-input{
+    outline: none;
     padding: 12px 5px;
     margin: 10px 0px;
     width:100%;
@@ -69,6 +74,7 @@ svg{
     cursor: pointer;
 }
 .input{
+    background-color: #DDEBFF;
     width: 45%;
     height: 40px;
     font-size: 18px;
@@ -79,6 +85,7 @@ svg{
 }
 
 .long-input{
+    background-color: #DDEBFF;
     width:95%;
     font-size: 18px;
     padding-top: 5px;
